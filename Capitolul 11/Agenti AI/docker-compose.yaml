@@ -1,0 +1,13 @@
+services:
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyter-lab
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
+    volumes:
+      - .:/home/work
+    restart: unless-stopped
